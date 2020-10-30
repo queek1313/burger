@@ -11,7 +11,7 @@ app.use(express.json());
 
 var PORT = process.env.PORT || 8080;
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));  //set up handlebars itself
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.listen(PORT, function () {
