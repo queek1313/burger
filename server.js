@@ -2,10 +2,10 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var routes = require("./controllers/burgers_controller.js")
 
-app.use(routes);
 
 var app = express();
 
+app.use(routes);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
