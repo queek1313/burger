@@ -1,31 +1,29 @@
-const connection = require("../config/connection.js")
-
-
+var connection = require("../config/connection.js");
 
 var orm = {
     all: function (tableInput, cb) {
-        var queryAll = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryAll, function (err, res) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function (err, result) {
             if (err) throw err;
-            cb(res);
+            cb(result);
         });
     },
-    create: function (table, col, val, cb) {
-        var queryAdd = "INSERT INTO ?? (??) VALUES (?)";
-        connection.query(queryAdd, [table, col, val], function (err, res) {
-            if (err) throw err;
-            cb(res);
-        });
 
+    insertOne: function (table, cols, vals, cb) {
+        var queryString = "INSERT INTO ?? (??) VALUES (?)";
+        connection.query(queryString, [table, cols, vals], function (err, result) {
+            if (err) throw err;
+            cb(result);
+        });
     },
 
-    update: function (tables, updateCol, updateVal, id, cb) {
-        var queryUpdate = "UPDATE ?? SET ?? = ? WHERE id =?";
-        connection.query(queryUpdate, [tables, updateCol, updateVal, id], function (err, res) {
+    updateOne: function (table, updateColVal, updateValue, id, cb) {
+        var queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
+        connection.query(queryString, [table, updateColVal, updateValue, id], function(err, result) {
             if (err) throw err;
-            cb(res);
-        })
-
+            cb(result);
+        });
     }
-}
+};
+
 module.exports = orm;

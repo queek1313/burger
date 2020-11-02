@@ -2,24 +2,31 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col s12 16" id="notEaten">
-            <h1>Burgers to eat!</h1>
+    <div class="row devoured-or-not">
+        <div class="col s12 l6" id="notDevoured">
+            <h4>Burgers Menu</h4>
             <ul>
                 {{#each burgers}}
-                <li> {{this.burger_name}} </li>
+                {{#unless this.devoured}}
+                <div class="list">
+                    {{#if devoured}}{{else}}
+                    <button class="eaten" data-id="{{id}}">eat me!</button>
+                    {{/if}}
+                   {{this.burger_name}}
+                </div>
+                {{/unless}}
                 {{/each}}
-
             </ul>
         </div>
 
-        <div class="col s12 16" id="Eaten">
-            <h1>Devoured burgers!</h1>
+        <div class="col s12 l6" id="devoured">
+            <h4>Burgers Devoured!</h4>
             <ul>
                 {{#each burgers}}
-                <li> {{this.burger_name}} </li>
+                {{#if this.devoured}}
+                <li>{{this.burger_name}}</li>
+                {{/if}}
                 {{/each}}
-
             </ul>
         </div>
     </div>
@@ -31,7 +38,7 @@
                 <label class="addNewBurger" for="burgerName">Burger Name: </label>
                 <input type="text" id="burgerName" name="name">
             </div>
-            <button class="add-burger" id="burgerButton" type="submit">ADD BURGER</button>
+            <button class="newBurger" id="burgerButton" type="submit">ADD BURGER</button>
         </form>
 
 
