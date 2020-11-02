@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger Time!</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-     <link rel="stylesheet" href="../../public/assets/css/style.css"/>
-     <base href="/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
+
 <body>
     {{{ body }}}
 
-     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-     {{!-- <script src='../../public/assets/js/index.js'></script> --}}
-<script>
-    $(document).ready(function () {
-    $(".eaten").on("click", function (event) {
-        event.preventDefault();
-        var id = $(this).data("id");
-        $.ajax({url: "/api/burgers/" + id, method: "PUT"})
-            
-        .then(function (data) {
-            location.reload();
-        });
-    });
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src='assets/js/index.js'></script>
+    <script>
+        //$(document).ready(function () {
+          //  $(".eaten").on("click", function (event) {
+           //     event.preventDefault();
+             //   var id = $(this).data("id");
+               // $.ajax({ url: "/api/burgers/" + id, method: "PUT" })
 
-    $(".newBurger").on("click", function (event) {
-        event.preventDefault();
+                 //   .then(function (data) {
+                   //     location.reload();
+                   // });
+          //  });
 
-        var newBurger = {
-            name: $("#burgerName").val().trim()
-        };
+         //   $(".newBurger").on("click", function (event) {
+           //     event.preventDefault();
 
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(function () {
-            location.reload();
-        })
-    })
-});
+             //   var newBurger = {
+               //     name: $("#burgerName").val().trim()
+                //};
 
-
+               // $.ajax("/api/burgers", {
+                //    type: "POST",
+                 //   data: newBurger
+               // }).then(function () {
+                 //   location.reload();
+                //})
+            //})
+       // });
 
 
-</script>
+
+
+    </script>
 
 
 </body>
+
 </html>
