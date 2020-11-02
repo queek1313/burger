@@ -1,16 +1,43 @@
 body{
     background-image:url("burgerBG.jpg");
     background-color: lightgoldenrodyellow;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
 }
 h1{
     text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 200px;
+    background-color: black;
 }
 .container{
-        background-color: lightblue;
+        background-color: rgb(197, 126, 59);
+        font-family: 'Henny Penny', cursive;
+        font-size: x-large;
 }
 
 .eaten{
     background-color: red;
 }
+.newBurger{
+    background-color: green;
+}
+.multicolortext {
+    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  footer{
+      color: white;
+      background-color: black;
+      text-align: center;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      margin-top: 100px;
+      padding-bottom: 50px;
+  }
